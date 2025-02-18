@@ -1,0 +1,14 @@
+/* https://coolors.co/palette/606c38-283618-fefae0-dda15e-bc6c25 */
+
+/* POSIBLE PALETA */
+/* 
+    Azul claro: #318ED6 (RGB: 49, 142, 214)
+    Morado oscuro: #1A0622 (RGB: 26, 6, 34)
+    Lavanda: #D2D2EA (RGB: 210, 210, 234)
+    Azul profundo: #0C2E7E (RGB: 12, 46, 126)
+    Rosa brillante: #BE36CD (RGB: 190, 54, 205)
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
