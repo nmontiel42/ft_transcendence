@@ -4,35 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../dist/output.css">
-    <title>Home</title>
-    <style>
-        #home {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <title>Pong Arcade Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
-<body class="bg-red-900">
-
+<body class="bg-black min-h-screen overflow-hidden">
+    <div class="scanlines"></div>
 
     <!-- PAGINA INICIO DE SESION -->
-
-
-    <div id="signin">
-        <h1>Welcome to the Home Page</h1>
-        <button id="signinBtn">Sign In</button>
+    <div id="signin" class="crt">
+        <div class="logo">
+            <div class="logo-text">PONG</div>
+        </div>
+        
+        <div class="pong-graphic">
+            <div class="paddle"></div>
+            <div class="ball"></div>
+            <div class="paddle"></div>
+        </div>
+        
+        <h1 class="neon-text" style="font-size: 14px;">Bienvenido al<br>mundo arcade</h1>
+        <h3 class="neon-subtitle">INICIA SESIÓN PARA JUGAR</h3>
+        
+        <button id="signinBtn">
+            PULSA EMPEZAR
+        </button>
+        
+        <div class="language-buttons">
+            <button class="lan-btn">ES</button>
+            <button class="lan-btn">EN</button>
+            <button class="lan-btn">FR</button>
+        </div>
+        
+        <div class="version-text">v2.5.1984</div>
     </div>
-
 
     <!-- HOME -->
-
-
     <div id="home">
         <h2 id="userLogin"></h2>
-        <img id="profileImage" src="" alt="Profile Picture" style="display: none; width: 100px; border-radius: 50%;">
-        <button id="signoutBtn">Sign Out</button>
+        <img id="profileImage" src="" alt="Profile Picture" class="hidden w-24 h-24 rounded-full">
+        <button id="signoutBtn" class="text-white">Sign Out</button>
     </div>
-    
 
-    <script src="../../dist/index.js"></script>
+    <script src="../../dist/bundle.js"></script>
 </body>
 </html>

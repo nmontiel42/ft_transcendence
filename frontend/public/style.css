@@ -8,7 +8,348 @@
     Azul profundo: #0C2E7E (RGB: 12, 46, 126)
     Rosa brillante: #BE36CD (RGB: 190, 54, 205)
 */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-color: #000;
+    background-image: 
+        linear-gradient(0deg, transparent 24%, rgba(32, 105, 178, 0.3) 25%, rgba(32, 105, 178, 0.3) 26%, transparent 27%, transparent 74%, rgba(32, 105, 178, 0.3) 75%, rgba(32, 105, 178, 0.3) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, rgba(32, 105, 178, 0.3) 25%, rgba(32, 105, 178, 0.3) 26%, transparent 27%, transparent 74%, rgba(32, 105, 178, 0.3) 75%, rgba(32, 105, 178, 0.3) 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    height: 100vh;
+    overflow: hidden;
+    animation: backgroundScroll 20s linear infinite;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(30, 13, 58, 0.5) 0%, rgba(0, 0, 0, 0.9) 100%);
+    z-index: 1;
+}
+
+@keyframes backgroundScroll {
+    from {background-position: 0 0;}
+    to {background-position: 100px 100px;}
+}
+
+#home {
+    display: none; /* Inicialmente oculto */
+    position: relative;
+    z-index: 50;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(11, 34, 90, 0.85);
+    border: 3px solid #BE36CD;
+    box-shadow: 0 0 10px #BE36CD, 0 0 20px #318ED6;
+    border-radius: 10px;
+    padding: 30px;
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#home.active {
+    display: flex;
+}
+
+#signoutBtn {
+    position: relative;
+    z-index: 100;
+    margin-top: 20px;
+    background-color: transparent;
+    border: 2px solid #BE36CD;
+    color: #D2D2EA;
+    padding: 10px 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 5px #BE36CD;
+}
+
+#signoutBtn:hover {
+    color: #fff;
+    box-shadow: 0 0 10px #BE36CD;
+    text-shadow: 0 0 5px #fff;
+}
+
+#signin {
+    background-color: rgba(11, 34, 90, 0.85);
+    border: 3px solid #BE36CD;
+    box-shadow: 
+        0 0 10px #BE36CD,
+        0 0 20px #318ED6,
+        0 0 40px rgba(49, 142, 214, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    width: 380px;
+    max-width: 90vw;
+}
+
+.logo {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.logo-text {
+    font-size: 32px;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 
+        0 0 10px #318ED6,
+        0 0 20px #318ED6,
+        0 0 30px #318ED6;
+    letter-spacing: 2px;
+    position: relative;
+    animation: logoFlicker 2s infinite alternate;
+}
+
+@keyframes logoFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 
+            0 0 10px #318ED6,
+            0 0 20px #318ED6,
+            0 0 30px #318ED6;
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+.pong-graphic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0;
+    position: relative;
+}
+
+.paddle {
+    width: 10px;
+    height: 40px;
+    background-color: #BE36CD;
+    box-shadow: 0 0 10px #BE36CD;
+}
+
+.ball {
+    width: 10px;
+    height: 10px;
+    background-color: #D2D2EA;
+    border-radius: 50%;
+    margin: 0 20px;
+    box-shadow: 0 0 10px #D2D2EA;
+    animation: ballMove 2s linear infinite;
+    position: relative;
+}
+
+@keyframes ballMove {
+    0%, 100% { transform: translateX(-15px); }
+    50% { transform: translateX(15px); }
+}
+
+.crt::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 15;
+    pointer-events: none;
+}
+
+.scanlines::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 20;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.neon-text {
+    text-transform: uppercase;
+    background: linear-gradient(to right, #318ED6, #D2D2EA, #BE36CD);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 
+        0 0 10px rgba(190, 54, 205, 0.8),
+        0 0 20px rgba(96, 12, 126, 0.6),
+        0 0 30px rgba(49, 142, 214, 0.4);
+    animation: textPulse 4s infinite alternate;
+}
+
+.neon-subtitle {
+    font-size: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: #D2D2EA;
+    text-shadow: 0 0 5px #318ED6;
+    letter-spacing: 1px;
+}
+
+@keyframes textPulse {
+    0% {
+        text-shadow: 
+            0 0 7px rgba(210, 210, 234, 0.8),
+            0 0 10px rgba(49, 142, 214, 0.5);
+    }
+    100% {
+        text-shadow: 
+            0 0 10px rgba(190, 54, 205, 0.9),
+            0 0 20px rgba(49, 142, 214, 0.7),
+            0 0 30px rgba(210, 210, 234, 0.5);
+    }
+}
+
+#signinBtn {
+    background-color: transparent;
+    border: 2px solid #BE36CD;
+    color: #D2D2EA;
+    padding: 15px 30px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s;
+    box-shadow: 
+        0 0 5px #BE36CD,
+        0 0 10px rgba(49, 142, 214, 0.7);
+}
+
+#signinBtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(190, 54, 205, 0.4), transparent);
+    transition: all 0.6s;
+    z-index: -1;
+}
+
+#signinBtn:hover {
+    color: #fff;
+    box-shadow: 
+        0 0 10px #BE36CD,
+        0 0 20px rgba(49, 142, 214, 0.7),
+        0 0 30px rgba(210, 210, 234, 0.5);
+    text-shadow: 0 0 5px #fff;
+    letter-spacing: 2px;
+}
+
+#signinBtn:hover::before {
+    left: 100%;
+}
+
+#signinBtn:active {
+    transform: scale(0.95);
+    box-shadow: 
+        0 0 5px #BE36CD,
+        0 0 10px rgba(49, 142, 214, 0.7);
+}
+
+.language-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+.lan-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #318ED6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: #D2D2EA;
+    font-size: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 5px rgba(49, 142, 214, 0.5);
+}
+
+.lan-btn:hover {
+    border-color: #BE36CD;
+    box-shadow: 0 0 10px #BE36CD;
+    transform: translateY(-2px);
+}
+
+.version-text {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 8px;
+    color: rgba(210, 210, 234, 0.5);
+    text-shadow: 0 0 2px rgba(49, 142, 214, 0.3);
+}
+
+/* Glitch effect */
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+/* For extremely brief moments, apply a glitch effect to the whole container */
+.crt {
+    position: relative;
+    animation: glitch 0.5s infinite;
+    animation-play-state: paused;
+}
