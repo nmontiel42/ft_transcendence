@@ -72,7 +72,7 @@ async function handleOAuthCallback(): Promise<void> {
         const userProfileImage = data.user_data.image.link; // Obtener URL de la imagen
 
         // Mostrar información en la UI
-        document.getElementById('userLogin')!.textContent = `Welcome, ${userLogin}`;
+        document.getElementById('userLogin')!.textContent = `${userLogin}`;
         const profileImgElement = document.getElementById('profileImage') as HTMLImageElement;
         profileImgElement.src = userProfileImage;
         profileImgElement.style.display = 'block'; // Asegurar que la imagen sea visible
